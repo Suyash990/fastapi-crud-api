@@ -3,54 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlow — Modern Item & Task Management Portal</title>
+    <title>TaskPulse — Futuristic Task & Management Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-body: #0f172a;
-            --bg-card: rgba(30, 41, 59, 0.7);
-            --bg-card-hover: rgba(30, 41, 59, 0.9);
-            --border-color: rgba(255, 255, 255, 0.1);
+            --bg-body: #07090e;
+            --bg-card: rgba(15, 23, 42, 0.65);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(6, 182, 212, 0.4);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
-            --accent-primary: #6366f1;
-            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            --accent-success: #10b981;
-            --accent-warning: #f59e0b;
-            --accent-danger: #ef4444;
-            --radius-lg: 16px;
-            --radius-md: 12px;
-            --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
+            
+            --cyan-primary: #06b6d4;
+            --violet-primary: #8b5cf6;
+            --pink-primary: #ec4899;
+            --emerald-primary: #10b981;
+            --amber-primary: #f59e0b;
+            
+            --gradient-main: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            --shadow-neon: 0 0 30px rgba(6, 182, 212, 0.25);
+            --radius-xl: 20px;
+            --radius-lg: 14px;
+            --radius-md: 10px;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
 
         body {
             background-color: var(--bg-body);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+                radial-gradient(at 10% 10%, rgba(6, 182, 212, 0.12) 0px, transparent 40%),
+                radial-gradient(at 90% 20%, rgba(139, 92, 246, 0.15) 0px, transparent 40%),
+                radial-gradient(at 50% 80%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
             background-attachment: fixed;
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex; flex-direction: column;
+            color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden;
         }
 
         .navbar {
-            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; padding: 1rem 2rem;
+            background: rgba(7, 9, 14, 0.75); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; padding: 1.1rem 2.5rem;
         }
 
-        .nav-container { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--text-primary); font-weight: 800; font-size: 1.35rem; }
-        .brand-icon { width: 40px; height: 40px; background: var(--accent-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: var(--shadow-glow); }
-        .nav-actions { display: flex; align-items: center; gap: 1rem; }
-        .status-badge { background: rgba(16, 185, 129, 0.15); color: var(--accent-success); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
-        .status-pulse { width: 8px; height: 8px; background: var(--accent-success); border-radius: 50%; box-shadow: 0 0 8px var(--accent-success); animation: pulse 2s infinite; }
+        .nav-container { max-width: 1320px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; color: var(--text-primary); font-weight: 800; font-size: 1.5rem; }
+        .brand-logo { width: 44px; height: 44px; background: var(--gradient-main); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; box-shadow: var(--shadow-neon); font-size: 1.2rem; }
+        .brand-text { background: linear-gradient(to right, #ffffff, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-actions { display: flex; align-items: center; gap: 1.25rem; }
+        .status-badge { background: rgba(16, 185, 129, 0.1); color: var(--emerald-primary); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 0.6rem; }
+        .status-pulse { width: 8px; height: 8px; background: var(--emerald-primary); border-radius: 50%; box-shadow: 0 0 10px var(--emerald-primary); animation: pulse 2s infinite; }
 
         @keyframes pulse {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
@@ -58,56 +63,78 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        .btn-docs { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
-        .main-content { max-width: 1280px; margin: 0 auto; padding: 2rem; flex: 1; width: 100%; }
-        .dashboard-header { margin-bottom: 2rem; }
-        .dashboard-title { font-size: 2.25rem; font-weight: 800; background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
-        .dashboard-subtitle { color: var(--text-secondary); font-size: 1rem; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
-        .stat-card { background: var(--bg-card); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; align-items: center; gap: 1.25rem; }
-        .stat-icon { width: 54px; height: 54px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; }
-        .stat-icon.purple { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
-        .stat-icon.green { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-        .stat-icon.amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-        .stat-info .stat-value { font-size: 1.75rem; font-weight: 800; color: var(--text-primary); }
-        .stat-info .stat-label { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
-        .content-grid { display: grid; grid-template-columns: 360px 1fr; gap: 2rem; }
-        @media (max-width: 992px) { .content-grid { grid-template-columns: 1fr; } }
-        .card { background: var(--bg-card); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; }
-        .card-header { margin-bottom: 1.5rem; }
-        .card-title { font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
-        .form-group { margin-bottom: 1.25rem; }
-        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem; }
-        .form-input, .form-textarea { width: 100%; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.75rem 1rem; color: var(--text-primary); outline: none; }
-        .form-textarea { resize: vertical; min-height: 90px; }
-        .form-checkbox { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
+        .btn-docs { background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid var(--border-color); color: var(--text-primary); padding: 0.6rem 1.2rem; border-radius: var(--radius-lg); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.6rem; }
+        .btn-docs:hover { border-color: var(--cyan-primary); box-shadow: 0 0 15px rgba(6, 182, 212, 0.2); transform: translateY(-2px); }
+
+        .main-content { max-width: 1320px; margin: 0 auto; padding: 2.5rem; flex: 1; width: 100%; }
+        .dashboard-header { margin-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; }
+        .dashboard-title { font-size: 2.5rem; font-weight: 800; background: linear-gradient(to right, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.4rem; }
+        .dashboard-subtitle { color: var(--text-secondary); font-size: 1.05rem; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; margin-bottom: 3rem; }
+        .stat-card { background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 1.75rem; display: flex; align-items: center; gap: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; }
+        .stat-card.cyan::before { background: var(--cyan-primary); }
+        .stat-card.emerald::before { background: var(--emerald-primary); }
+        .stat-card.amber::before { background: var(--amber-primary); }
+        .stat-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.18); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); }
+
+        .stat-icon { width: 60px; height: 60px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .stat-icon.cyan { background: rgba(6, 182, 212, 0.12); color: var(--cyan-primary); }
+        .stat-icon.emerald { background: rgba(16, 185, 129, 0.12); color: var(--emerald-primary); }
+        .stat-icon.amber { background: rgba(245, 158, 11, 0.12); color: var(--amber-primary); }
+        .stat-info .stat-value { font-size: 2rem; font-weight: 800; color: var(--text-primary); line-height: 1.1; }
+        .stat-info .stat-label { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.2rem; }
+
+        .content-grid { display: grid; grid-template-columns: 380px 1fr; gap: 2rem; }
+        @media (max-width: 1024px) { .content-grid { grid-template-columns: 1fr; } }
+
+        .card { background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .card-header { margin-bottom: 1.75rem; }
+        .card-title { font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.6rem; }
+        .form-input, .form-textarea { width: 100%; background: rgba(7, 9, 14, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 0.85rem 1.1rem; color: var(--text-primary); font-size: 0.95rem; outline: none; transition: all 0.25s ease; }
+        .form-input:focus, .form-textarea:focus { border-color: var(--cyan-primary); box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2); background: rgba(7, 9, 14, 0.9); }
+        .form-textarea { resize: vertical; min-height: 100px; }
+
+        .form-checkbox { display: flex; align-items: center; gap: 0.85rem; cursor: pointer; }
         .form-checkbox input { display: none; }
-        .checkmark { width: 20px; height: 20px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-        .form-checkbox input:checked ~ .checkmark { background: var(--accent-primary); border-color: var(--accent-primary); }
-        .checkmark i { color: white; font-size: 0.75rem; display: none; }
+        .checkmark { width: 22px; height: 22px; background: rgba(7, 9, 14, 0.7); border: 1px solid var(--border-color); border-radius: 7px; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+        .form-checkbox input:checked ~ .checkmark { background: var(--cyan-primary); border-color: var(--cyan-primary); box-shadow: 0 0 10px rgba(6, 182, 212, 0.4); }
+        .checkmark i { color: white; font-size: 0.8rem; display: none; }
         .form-checkbox input:checked ~ .checkmark i { display: block; }
-        .btn-submit { width: 100%; background: var(--accent-gradient); border: none; color: white; padding: 0.85rem; border-radius: var(--radius-md); font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-        .directory-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; }
-        .filter-buttons { display: flex; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); padding: 4px; border-radius: var(--radius-md); }
-        .filter-btn { background: transparent; border: none; color: var(--text-secondary); padding: 0.4rem 0.85rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
-        .filter-btn.active { background: var(--accent-primary); color: white; }
-        .search-box { position: relative; min-width: 240px; }
-        .search-box i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-        .search-input { width: 100%; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 0.5rem 1rem 0.5rem 2.5rem; color: var(--text-primary); outline: none; }
-        .items-list { display: flex; flex-direction: column; gap: 0.85rem; }
-        .item-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-        .item-left { display: flex; align-items: flex-start; gap: 1rem; }
-        .item-checkbox-btn { background: transparent; border: none; cursor: pointer; margin-top: 2px; }
-        .item-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; }
+
+        .btn-submit { width: 100%; background: var(--gradient-main); border: none; color: white; padding: 0.95rem; border-radius: var(--radius-lg); font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: var(--shadow-neon); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+        .btn-submit:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 0 35px rgba(6, 182, 212, 0.4); }
+
+        .directory-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.75rem; }
+        .filter-buttons { display: flex; background: rgba(7, 9, 14, 0.7); border: 1px solid var(--border-color); padding: 5px; border-radius: var(--radius-lg); }
+        .filter-btn { background: transparent; border: none; color: var(--text-secondary); padding: 0.5rem 1.1rem; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+        .filter-btn.active { background: var(--cyan-primary); color: white; box-shadow: 0 0 12px rgba(6, 182, 212, 0.3); }
+
+        .search-box { position: relative; min-width: 260px; }
+        .search-box i { position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        .search-input { width: 100%; background: rgba(7, 9, 14, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 0.6rem 1.1rem 0.6rem 2.7rem; color: var(--text-primary); font-size: 0.9rem; outline: none; }
+        .search-input:focus { border-color: var(--cyan-primary); }
+
+        .items-list { display: flex; flex-direction: column; gap: 1rem; }
+        .item-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.35rem; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; transition: all 0.25s ease; }
+        .item-card:hover { border-color: rgba(6, 182, 212, 0.3); background: var(--bg-card-hover); transform: translateX(3px); }
+        .item-left { display: flex; align-items: flex-start; gap: 1.1rem; }
+        .item-checkbox-btn { background: transparent; border: none; cursor: pointer; margin-top: 3px; }
+        .item-title { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; }
         .item-title.completed { text-decoration: line-through; color: var(--text-muted); }
-        .item-desc { font-size: 0.875rem; color: var(--text-secondary); }
-        .item-actions { display: flex; align-items: center; gap: 0.5rem; }
-        .btn-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        .btn-icon.delete:hover { background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.4); color: var(--accent-danger); }
-        .empty-state { text-align: center; padding: 3rem 1rem; color: var(--text-muted); }
-        .empty-state i { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
-        .toast-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1000; display: flex; flex-direction: column; gap: 0.75rem; }
-        .toast { background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-primary); color: var(--text-primary); padding: 1rem 1.25rem; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.75rem; }
+        .item-desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.4; }
+        .item-actions { display: flex; align-items: center; gap: 0.6rem; }
+        .btn-icon { width: 38px; height: 38px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; }
+        .btn-icon:hover { background: rgba(255, 255, 255, 0.08); color: var(--text-primary); border-color: rgba(255, 255, 255, 0.2); }
+        .btn-icon.delete:hover { background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.4); color: #ef4444; }
+        .empty-state { text-align: center; padding: 4rem 1rem; color: var(--text-muted); }
+        .empty-state i { font-size: 3.5rem; margin-bottom: 1.25rem; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.8; }
+        .toast-container { position: fixed; bottom: 2.5rem; right: 2.5rem; z-index: 1000; display: flex; flex-direction: column; gap: 0.85rem; }
+        .toast { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-left: 4px solid var(--cyan-primary); color: var(--text-primary); padding: 1.1rem 1.5rem; border-radius: var(--radius-lg); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 0.85rem; }
     </style>
 </head>
 <body>
@@ -115,13 +142,13 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="brand">
-                <div class="brand-icon"><i class="fa-solid fa-layer-group"></i></div>
-                <span>TaskFlow Portal</span>
+                <div class="brand-logo"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <span class="brand-text">TaskPulse Hub</span>
             </a>
             <div class="nav-actions">
                 <div class="status-badge">
                     <span class="status-pulse"></span>
-                    <span>API Online</span>
+                    <span>System Online</span>
                 </div>
                 <a href="/docs" target="_blank" class="btn-docs">
                     <i class="fa-solid fa-code"></i>
@@ -133,30 +160,32 @@
 
     <main class="main-content">
         <div class="dashboard-header">
-            <h1 class="dashboard-title">Item & Task Management</h1>
-            <p class="dashboard-subtitle">Track, organize, and manage your records effortlessly via FastAPI REST service.</p>
+            <div>
+                <h1 class="dashboard-title">Command & Task Center</h1>
+                <p class="dashboard-subtitle">Manage, automate, and organize high-priority database records in real-time.</p>
+            </div>
         </div>
 
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon purple"><i class="fa-solid fa-list-check"></i></div>
+            <div class="stat-card cyan">
+                <div class="stat-icon cyan"><i class="fa-solid fa-cubes"></i></div>
                 <div class="stat-info">
                     <div class="stat-value" id="stat-total">0</div>
-                    <div class="stat-label">Total Items</div>
+                    <div class="stat-label">Total Records</div>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="stat-card emerald">
+                <div class="stat-icon emerald"><i class="fa-solid fa-circle-check"></i></div>
                 <div class="stat-info">
                     <div class="stat-value" id="stat-completed">0</div>
-                    <div class="stat-label">Completed</div>
+                    <div class="stat-label">Completed Tasks</div>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon amber"><i class="fa-solid fa-clock"></i></div>
+            <div class="stat-card amber">
+                <div class="stat-icon amber"><i class="fa-solid fa-hourglass-half"></i></div>
                 <div class="stat-info">
                     <div class="stat-value" id="stat-pending">0</div>
-                    <div class="stat-label">Pending</div>
+                    <div class="stat-label">Pending Action</div>
                 </div>
             </div>
         </div>
@@ -165,30 +194,30 @@
             <div class="card">
                 <div class="card-header">
                     <h2 class="card-title" id="form-title-text">
-                        <i class="fa-solid fa-plus-circle" style="color: var(--accent-primary)"></i>
-                        <span>Add New Item</span>
+                        <i class="fa-solid fa-plus-circle" style="color: var(--cyan-primary)"></i>
+                        <span>Create New Record</span>
                     </h2>
                 </div>
                 <form id="item-form">
                     <input type="hidden" id="item-id" value="">
                     <div class="form-group">
-                        <label class="form-label" for="input-title">Item Title *</label>
-                        <input type="text" id="input-title" class="form-input" placeholder="e.g. Complete FastAPI setup" required>
+                        <label class="form-label" for="input-title">Record Title *</label>
+                        <input type="text" id="input-title" class="form-input" placeholder="e.g. Deploy FastAPI Service" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="input-desc">Description</label>
-                        <textarea id="input-desc" class="form-textarea" placeholder="Add additional details or notes..."></textarea>
+                        <label class="form-label" for="input-desc">Description & Context</label>
+                        <textarea id="input-desc" class="form-textarea" placeholder="Provide additional guidelines or requirements..."></textarea>
                     </div>
                     <div class="form-group">
                         <label class="form-checkbox">
                             <input type="checkbox" id="input-completed">
                             <span class="checkmark"><i class="fa-solid fa-check"></i></span>
-                            <span style="font-size: 0.9rem; font-weight: 500;">Mark as Completed</span>
+                            <span style="font-size: 0.92rem; font-weight: 500;">Mark as Completed</span>
                         </label>
                     </div>
                     <button type="submit" class="btn-submit" id="btn-save">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span id="btn-save-text">Save Item</span>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span id="btn-save-text">Save Record</span>
                     </button>
                 </form>
             </div>
@@ -225,7 +254,7 @@
                 updateStats();
                 renderItems();
             } catch (err) {
-                showToast('Error loading items', 'danger');
+                showToast('Error loading records from API', 'danger');
             }
         }
 
@@ -262,9 +291,9 @@
             if (filtered.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
-                        <i class="fa-solid fa-folder-open"></i>
-                        <h3>No Items Found</h3>
-                        <p>Start by creating a new item using the form on the left.</p>
+                        <i class="fa-solid fa-sparkles"></i>
+                        <h3 style="color: var(--text-primary); margin-bottom: 0.4rem;">No Records Found</h3>
+                        <p>Get started by creating your first entry using the panel on the left.</p>
                     </div>
                 `;
                 return;
@@ -274,7 +303,7 @@
                 <div class="item-card">
                     <div class="item-left">
                         <button class="item-checkbox-btn" onclick="toggleItem(${item.id}, ${!item.completed})">
-                            <span class="checkmark" style="${item.completed ? 'background: var(--accent-success); border-color: var(--accent-success);' : ''}">
+                            <span class="checkmark" style="${item.completed ? 'background: var(--emerald-primary); border-color: var(--emerald-primary); box-shadow: 0 0 10px rgba(16,185,129,0.4);' : ''}">
                                 <i class="fa-solid fa-check" style="${item.completed ? 'display: block;' : ''}"></i>
                             </span>
                         </button>
@@ -284,8 +313,8 @@
                         </div>
                     </div>
                     <div class="item-actions">
-                        <button class="btn-icon" onclick="editItem(${item.id})" title="Edit Item"><i class="fa-solid fa-pen"></i></button>
-                        <button class="btn-icon delete" onclick="deleteItem(${item.id})" title="Delete Item"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn-icon" onclick="editItem(${item.id})" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn-icon delete" onclick="deleteItem(${item.id})" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
             `).join('');
@@ -318,7 +347,7 @@
 
                 if (!res.ok) throw new Error('Action failed');
                 
-                showToast(id ? 'Item updated successfully!' : 'Item created successfully!', 'success');
+                showToast(id ? 'Record updated successfully!' : 'Record created successfully!', 'success');
                 resetForm();
                 fetchItems();
             } catch (err) {
@@ -336,7 +365,7 @@
                 if (!res.ok) throw new Error('Failed to update status');
                 fetchItems();
             } catch (err) {
-                showToast('Failed to update item status', 'danger');
+                showToast('Failed to update record status', 'danger');
             }
         }
 
@@ -347,27 +376,27 @@
             document.getElementById('input-title').value = item.title;
             document.getElementById('input-desc').value = item.description || '';
             document.getElementById('input-completed').checked = item.completed;
-            document.getElementById('btn-save-text').innerText = 'Update Item';
-            document.getElementById('form-title-text').innerHTML = `<i class="fa-solid fa-pen-to-square" style="color: var(--accent-primary)"></i> <span>Edit Item #${item.id}</span>`;
+            document.getElementById('btn-save-text').innerText = 'Update Record';
+            document.getElementById('form-title-text').innerHTML = `<i class="fa-solid fa-pen-to-square" style="color: var(--cyan-primary)"></i> <span>Edit Record #${item.id}</span>`;
         }
 
         async function deleteItem(id) {
-            if (!confirm('Are you sure you want to delete this item?')) return;
+            if (!confirm('Are you sure you want to delete this record?')) return;
             try {
                 const res = await fetch(`/items/${id}`, { method: 'DELETE' });
                 if (!res.ok) throw new Error('Failed to delete');
-                showToast('Item deleted successfully', 'info');
+                showToast('Record deleted successfully', 'info');
                 fetchItems();
             } catch (err) {
-                showToast('Failed to delete item', 'danger');
+                showToast('Failed to delete record', 'danger');
             }
         }
 
         function resetForm() {
             document.getElementById('item-id').value = '';
             document.getElementById('item-form').reset();
-            document.getElementById('btn-save-text').innerText = 'Save Item';
-            document.getElementById('form-title-text').innerHTML = `<i class="fa-solid fa-plus-circle" style="color: var(--accent-primary)"></i> <span>Add New Item</span>`;
+            document.getElementById('btn-save-text').innerText = 'Save Record';
+            document.getElementById('form-title-text').innerHTML = `<i class="fa-solid fa-plus-circle" style="color: var(--cyan-primary)"></i> <span>Create New Record</span>`;
         }
 
         function escapeHtml(text) {
